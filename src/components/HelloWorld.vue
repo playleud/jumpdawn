@@ -73,9 +73,9 @@
 
     <v-container>
       <v-row>
-        <v-col v-for="n in 12" :key="n" class="d-flex child-flex" cols="3">
+        <v-col v-for="n in 12" :key="n" class="d-flex child-flex" cols="4">
           <v-img
-            :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
+            :src="`//bookcover.yuewen.com/qdbimg/349573/1003354631/150`"
             :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"
             aspect-ratio="1"
             class="grey lighten-2"
@@ -195,6 +195,14 @@
 <style>
 #create .v-speed-dial {
   position: absolute;
+}
+
+.v-sheet{
+  border-radius: 0
+}
+
+.v-card {
+  border-radius: 0
 }
 
 #create .v-btn--floating {
