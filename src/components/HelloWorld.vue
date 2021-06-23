@@ -12,6 +12,16 @@
       </v-btn>
     </v-toolbar>
 
+    <v-carousel cycle hide-delimiters height="10rem">
+      <v-carousel-item
+        v-for="(item, i) in banners"
+        :key="i"
+        :src="item.src"
+        reverse-transition="fade-transition"
+        transition="fade-transition"
+      ></v-carousel-item>
+    </v-carousel>
+
     <v-list subheader three-line>
       <v-subheader>User Controls</v-subheader>
 
@@ -35,31 +45,6 @@
         </v-list-item-content>
       </v-list-item>
     </v-list>
-
-    <!-- <v-navigation-drawer v-model="drawer" absolute temporary>
-      <v-list nav dense>
-        <v-list-item-group
-          v-model="group"
-          active-class="deep-purple--text text--accent-4"
-        >
-          <v-list-item>
-            <v-list-item-title>Foo</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-title>Bar</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-title>Fizz</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-title>Buzz</v-list-item-title>
-          </v-list-item>
-        </v-list-item-group>
-      </v-list>
-    </v-navigation-drawer> -->
 
     <v-navigation-drawer
       class="deep-purple accent-4"
@@ -85,33 +70,6 @@
         </div>
       </template>
     </v-navigation-drawer>
-
-    <!-- <v-navigation-drawer
-      v-model="drawer"
-      absolute
-      temporary
-      src="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"
-      width="70%"
-    >
-      <v-list
-      nav
-        dense>
-        <v-list-item-group
-          v-model="group"
-          active-class="deep-purple--text text--accent-4"
-        >
-          <v-list-item v-for="([icon, text], i) in items" :key="i" link>
-            <v-list-item-icon>
-              <v-icon>{{ icon }}</v-icon>
-            </v-list-item-icon>
-
-            <v-list-item-content>
-              <v-list-item-title>{{ text }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list-item-group>
-      </v-list>
-    </v-navigation-drawer> -->
 
     <v-container>
       <v-row>
@@ -215,19 +173,33 @@
         <v-icon>mdi-delete</v-icon>
       </v-btn>
     </v-speed-dial>
+
+    <v-list two-line>
+      <v-list-item-group v-model="selected" active-class="pink--text" multiple>
+        <template v-for="(item, index) in chapters">
+          <v-list-item :key="item.title">
+            <template>
+              <v-list-item-content>
+                <v-list-item-title v-text="item.title"></v-list-item-title>
+              </v-list-item-content>
+            </template>
+          </v-list-item>
+          <v-divider v-if="index < items.length - 1" :key="index"></v-divider>
+        </template>
+      </v-list-item-group>
+    </v-list>
   </v-card>
 </template>
 
 
 <style>
-  /* This is for documentation purposes and will not be needed in your application */
-  #create .v-speed-dial {
-    position: absolute;
-  }
+#create .v-speed-dial {
+  position: absolute;
+}
 
-  #create .v-btn--floating {
-    position: relative;
-  }
+#create .v-btn--floating {
+  position: relative;
+}
 </style>
 
 <script>
@@ -236,6 +208,42 @@ export default {
     settings: [],
     drawer: false,
     group: null,
+
+    selected: [2],
+    chapters: [
+      {
+        action: "15 min",
+        headline: "Brunch this weekend?",
+        subtitle: `I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
+        title: "Ali Connors",
+      },
+      {
+        action: "2 hr",
+        headline: "Summer BBQ",
+        subtitle: `Wish I could come, but I'm out of town this weekend.`,
+        title: "me, Scrott, Jennifer",
+      },
+      {
+        action: "6 hr",
+        headline: "Oui oui",
+        subtitle: "Do you have Paris recommendations? Have you ever been?",
+        title: "Sandra Adams",
+      },
+      {
+        action: "12 hr",
+        headline: "Birthday gift",
+        subtitle:
+          "Have any ideas about what we should get Heidi for her birthday?",
+        title: "Trevor Hansen",
+      },
+      {
+        action: "18hr",
+        headline: "Recipe to try",
+        subtitle:
+          "We should eat this: Grate, Squash, Corn, and tomatillo Tacos.",
+        title: "Britta Holt",
+      },
+    ],
 
     direction: "top",
     fab: false,
@@ -247,7 +255,17 @@ export default {
     bottom: true,
     left: false,
     transition: "slide-y-reverse-transition",
-
+    banners: [
+      {
+        src: "//bossaudioandcomic-1252317822.image.myqcloud.com/activity/document/ed3de3460a28936b25bae129499be61e.jpg",
+      },
+      {
+        src: "//bossaudioandcomic-1252317822.image.myqcloud.com/activity/document/8e990b0e48ca61a8c56137832d16b24a.jpg",
+      },
+      {
+        src: "//bossaudioandcomic-1252317822.image.myqcloud.com/activity/document/3543fb75ad5e815ac644b5268cdcf254.jpg",
+      },
+    ],
     // items: [
     //   ["mdi-email", "Inbox"],
     //   ["mdi-account-supervisor-circle", "Supervisors"],
