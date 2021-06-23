@@ -212,36 +212,19 @@ export default {
     selected: [2],
     chapters: [
       {
-        action: "15 min",
-        headline: "Brunch this weekend?",
-        subtitle: `I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
-        title: "Ali Connors",
+        title: "Ali 施蒂利克教科书里绝对是基督教是劳动节",
       },
       {
-        action: "2 hr",
-        headline: "Summer BBQ",
-        subtitle: `Wish I could come, but I'm out of town this weekend.`,
-        title: "me, Scrott, Jennifer",
+        title: "Ali 施蒂利克教科书里绝对是基督教是劳动节",
       },
       {
-        action: "6 hr",
-        headline: "Oui oui",
-        subtitle: "Do you have Paris recommendations? Have you ever been?",
-        title: "Sandra Adams",
+        title: "Ali 施蒂利克教科书里绝对是基督教是劳动节",
       },
       {
-        action: "12 hr",
-        headline: "Birthday gift",
-        subtitle:
-          "Have any ideas about what we should get Heidi for her birthday?",
-        title: "Trevor Hansen",
+        title: "Ali 施蒂利克教科书里绝对是基督教是劳动节li 施蒂利克教科书里绝对是基督教是劳动节",
       },
       {
-        action: "18hr",
-        headline: "Recipe to try",
-        subtitle:
-          "We should eat this: Grate, Squash, Corn, and tomatillo Tacos.",
-        title: "Britta Holt",
+        title: "Ali 施蒂利克教科书里绝对是基督教是劳动节",
       },
     ],
 
