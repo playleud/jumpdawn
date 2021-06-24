@@ -22,29 +22,7 @@
       ></v-carousel-item>
     </v-carousel>
 
-    <v-list subheader three-line>
-      <v-subheader>User Controls</v-subheader>
-
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title>Content filtering</v-list-item-title>
-          <v-list-item-subtitle
-            >Set the content filtering level to restrict appts that can be
-            downloaded</v-list-item-subtitle
-          >
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title>Password</v-list-item-title>
-          <v-list-item-subtitle
-            >Require password for purchase or use password to restrict
-            purchase</v-list-item-subtitle
-          >
-        </v-list-item-content>
-      </v-list-item>
-    </v-list>
+    
 
     <v-navigation-drawer
       class="deep-purple accent-4"
@@ -73,11 +51,11 @@
 
     <v-container>
       <v-row>
-        <v-col v-for="n in 12" :key="n" class="d-flex child-flex" cols="4">
+        <v-col v-for="n in 9" :key="n" class="d-flex child-flex" cols="4">
           <v-img
             :src="`//bookcover.yuewen.com/qdbimg/349573/1003354631/150`"
             :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"
-            aspect-ratio="1"
+            aspect-ratio="0.75"
             class="grey lighten-2"
           >
             <template v-slot:placeholder>
@@ -138,27 +116,49 @@
                 </v-card-actions>
               </div>
 
-              <v-avatar class="ma-3" size="125" tile>
-                <v-img :src="item.src"></v-img>
+              <v-avatar class="ma-3" size="150" tile absolute bottom>
+                <v-img :src="item.src"  class="grey lighten-2"></v-img>
               </v-avatar>
             </div>
           </v-card>
         </v-col>
       </v-row>
+
+
+
+      <v-list two-line>
+      <v-list-item-group v-model="selected" active-class="pink--text" multiple>
+        <template v-for="(item, index) in chapters">
+          <v-list-item :key="item.title">
+            <template>
+              <v-list-item-content>
+                <v-list-item-title v-text="item.title"></v-list-item-title>
+              </v-list-item-content>
+            </template>
+          </v-list-item>
+          <v-divider v-if="index < items.length - 1" :key="index"></v-divider>
+        </template>
+      </v-list-item-group>
+    </v-list>
     </v-container>
 
-    <v-speed-dial
+    
+
+    
+
+
+
+
+<v-speed-dial
       v-model="fab"
-      :top="top"
       :bottom="bottom"
       :right="right"
-      :left="left"
       :direction="direction"
       :open-on-hover="hover"
       :transition="transition"
     >
       <template v-slot:activator>
-        <v-btn v-model="fab" color="blue darken-2" dark fab>
+        <v-btn v-model="fab" color="blue darken-2" dark fab bottom right fixed>
           <v-icon v-if="fab"> mdi-close </v-icon>
           <v-icon v-else> mdi-account-circle </v-icon>
         </v-btn>
@@ -174,21 +174,9 @@
       </v-btn>
     </v-speed-dial>
 
-    <v-list two-line>
-      <v-list-item-group v-model="selected" active-class="pink--text" multiple>
-        <template v-for="(item, index) in chapters">
-          <v-list-item :key="item.title">
-            <template>
-              <v-list-item-content>
-                <v-list-item-title v-text="item.title"></v-list-item-title>
-              </v-list-item-content>
-            </template>
-          </v-list-item>
-          <v-divider v-if="index < items.length - 1" :key="index"></v-divider>
-        </template>
-      </v-list-item-group>
-    </v-list>
+
   </v-card>
+  
 </template>
 
 
@@ -197,12 +185,8 @@
   position: absolute;
 }
 
-.v-sheet{
-  border-radius: 0
-}
-
-.v-card {
-  border-radius: 0
+#create .v-sheet {
+  border-radius: 0;
 }
 
 #create .v-btn--floating {
@@ -229,7 +213,8 @@ export default {
         title: "Ali 施蒂利克教科书里绝对是基督教是劳动节",
       },
       {
-        title: "Ali 施蒂利克教科书里绝对是基督教是劳动节li 施蒂利克教科书里绝对是基督教是劳动节",
+        title:
+          "Ali 施蒂利克教科书里绝对是基督教是劳动节li 施蒂利克教科书里绝对是基督教是劳动节",
       },
       {
         title: "Ali 施蒂利克教科书里绝对是基督教是劳动节",
@@ -257,12 +242,7 @@ export default {
         src: "//bossaudioandcomic-1252317822.image.myqcloud.com/activity/document/3543fb75ad5e815ac644b5268cdcf254.jpg",
       },
     ],
-    // items: [
-    //   ["mdi-email", "Inbox"],
-    //   ["mdi-account-supervisor-circle", "Supervisors"],
-    //   ["mdi-clock-start", "Clock-in"],
 
-    // ],
     items: [
       { title: "书架", icon: "mdi-view-dashboard" },
       { title: "Account", icon: "mdi-account-box" },
@@ -271,7 +251,7 @@ export default {
     images: [
       {
         color: "#1F7087",
-        src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg",
+        src: "//bookcover.yuewen.com/qdbimg/349573/1003354631/150",
         title: "Supermodel",
         artist: "Foster the People",
       },
